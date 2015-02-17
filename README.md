@@ -9,7 +9,7 @@ DISCLAIMER :
   
   (Side note)For this reason, encapsulation is a wonderful thing.
   
-  I do not wish to scare you with the evils of the world, I just want give you some persepctive.
+  I do not wish to scare you with the evils of the world, I just want give you some perspective.
 
 read this before submitting code.
 1: When uploading code, put your name in the title and in first a first line comment.
