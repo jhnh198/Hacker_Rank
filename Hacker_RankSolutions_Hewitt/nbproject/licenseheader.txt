@@ -1,0 +1,9 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Author : John Hewitt, 2015
+${licensePrefix} Hacker Rank Competitive Programming Group
+${licensePrefix} NEIU Comuputer Science Society 
+<#if licenseLast??>
+${licenseLast}
+</#if>
