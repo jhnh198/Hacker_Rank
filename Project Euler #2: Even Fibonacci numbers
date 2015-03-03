@@ -1,0 +1,35 @@
+/* Project Euler #2: Even Fibonacci numbers
+   Evan Crutcher
+   3/3/2015
+*/
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        long sumEvens, fib1, fib2;
+        
+        // Read input
+        int t = in.nextInt();
+        long[] n = new long[t];
+        for(int i = 0; i < t; i++)
+            n[i] = in.nextLong();
+    
+        // Calculate result
+        for(int i = 0; i < t; i++){
+            fib1 = 0;
+            fib2 = 1;
+            sumEvens = 0;
+            for(long j = 1; j < n[i]; j = fib1 + fib2){
+                if(j % 2 == 0) sumEvens += j;
+                fib1 = fib2;
+                fib2 = j;
+            }
+            System.out.println(sumEvens);
+        }
+    }
+}
