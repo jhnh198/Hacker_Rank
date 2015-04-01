@@ -1,3 +1,7 @@
+/*John Hewitt
+4/1/15
+Maximising the value of XOR through a range from L to R. L being the lower bound and R being the upper bound
+O(N^2) time complexity due to the nested for loop*/
 import java.io.*;
 import java.util.*;
 import java.text.*;
@@ -6,14 +10,12 @@ import java.util.regex.*;
 
 public class MaxXor {
     static int maxXor(int l, int r) {
-        int a = l;
-        int b = l;
-        int max = 0;
-        int compare = 0;
+        int max = 0; // returns this max value
+        int compare = 0; // value to be determined through iteration
         
-        for(int i = a; i <= r; i++)
-            for(int j = b; j <= r; j++){
-                compare = i ^ j;
+        for(int a = l; a <= r; a++)
+            for(int b = l; b <= r; b++){
+                compare = a ^ b; // carat is XOR in java
                 if(compare > max){
                     max = compare;
                 }
