@@ -1,0 +1,33 @@
+/* Evan Crutcher, February 2015
+   Solution to "Flipping bits" under
+   HackerRank -> Algorithms -> Bit Manipulation
+*/
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n;
+        String[] nums;
+        Long num, result; // using Long to avoid conversion to binary and back
+        Long max = Long.parseLong("4294967295"); // 2^32 - 1, maximum input value
+        String dummy;
+        
+        // read input
+        n = in.nextInt();
+        dummy = in.nextLine();
+        nums = new String[n];
+        for(int i = 0; i < n; i++)
+            nums[i] = in.nextLine();
+        
+        // evaluate each number
+        for(int j = 0; j < n; j++){
+            num = Long.parseLong(nums[j]);
+            result = Long.sum(max, -num);  // Flip the bits.
+            System.out.println(result);
+        }
+    }
+}
