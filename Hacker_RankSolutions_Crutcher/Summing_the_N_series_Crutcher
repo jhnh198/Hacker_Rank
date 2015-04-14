@@ -1,0 +1,38 @@
+/* Evan Crutcher
+   April 14, 2015
+   Solution to "Summing the N series" under
+   HackerRank -> Algorithms -> Summations and Algebra
+   Simplifies the sum of n terms to the sum of 1st n odd integers, or n^2.
+   Uses BigInteger to handle cases where n^2 is too big for a long integer.
+*/
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+
+public class Solution {
+    
+    public static int solve(BigInteger n){
+        // Sum of n terms where Tn = n^2 - (n-1)^2.
+        // Sum is of first n odd integers is n^2.       
+        BigInteger m = new BigInteger("1000000007");
+        return n.pow(2).mod(m).intValue();
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int t;
+        String skip;
+        BigInteger[] ar;
+        
+        t = in.nextInt();
+        skip = in.nextLine();
+        ar = new BigInteger[t];
+
+        for(int i=0; i<t; i++)
+            ar[i] = new BigInteger(in.nextLine());
+        
+        for(int j=0; j<t; j++)
+            System.out.println(solve(ar[j]));
+    }
+}
