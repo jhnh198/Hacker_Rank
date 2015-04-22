@@ -1,0 +1,39 @@
+/* Evan Crutcher
+   April 22, 2015
+   Solution to "Alternating Characters" under
+   HackerRank -> Algorithms -> Strings
+   Counts deletions needed for a given String by comparing consecutive characters and deleting one if they are the same.
+*/
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    static void solve(String[] lines){
+        for(String line:lines)
+            System.out.println(countDeletions(line));  // Print number of deletions for test case.
+    }
+    
+    static int countDeletions(String text){
+        int count = 0;
+        for(int i = 1; i < text.length(); i++)
+            if(text.charAt(i) == text.charAt(i - 1))  // Delete letter if same as previous.
+                count++;
+        return count;
+    }
+    
+    public static void main(String[] args) {
+        int T;  // Number of test cases.
+        String[] lines;  // Test cases.
+        Scanner in = new Scanner(System.in);
+        String skip;
+        
+        T = in.nextInt();
+        lines = new String[T];
+        skip = in.nextLine();
+        for(int i = 0; i < lines.length; i++)
+            lines[i] = in.nextLine();
+        
+        solve(lines);
+    }
+}
