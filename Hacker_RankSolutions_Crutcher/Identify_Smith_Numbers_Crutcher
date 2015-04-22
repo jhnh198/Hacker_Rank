@@ -1,0 +1,47 @@
+/* Evan Crutcher
+   April 22, 2015
+   Solution to "Identify Smith Numbers" under
+   HackerRank -> Algorithms -> Warmup
+   Compares sum of digits in given integer with sum of digits of prime factors of the given integer.
+*/
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    static int solve(int n){
+        if(sumDigits(n) == sumDigitsPrimeFactors(n))  // Identify Smith Number
+            return 1;
+        else
+            return 0;
+    }
+    
+    static int sumDigits(int n){  // Sum the digits in a number
+        int sum = 0;
+        while(n > 0){
+            sum += n % 10;
+            n = n / 10;
+        }
+        return sum;
+    }
+    
+    static int sumDigitsPrimeFactors(int n){  // Sum the digits in the prime factors of a number
+        int sum = 0;
+        int num = n;
+        for(int i = 2; i <= n / i; i++)  // Check factors from 2 to n / 2, etc.
+            while(num % i == 0){
+                sum += sumDigits(i);  // Add factor's digits to sum
+                num = num / i;
+            }
+        if(num > 1)
+            sum += sumDigits(num);  // Catches cases where largest prime factor is > sqrt(n).
+        return sum;
+    }
+        
+    public static void main(String[] args) {
+        int N;  // Input number
+        Scanner in = new Scanner(System.in);
+        N = in.nextInt();
+        System.out.println(solve(N));
+    }
+}
